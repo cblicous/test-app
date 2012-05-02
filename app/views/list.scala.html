@@ -1,0 +1,158 @@
+@(userEmail : String,currentPage: Page[(Item, Option[Company])], currentOrderBy: Int, currentFilter: String)(implicit flash: play.api.mvc.Flash)
+
+@****************************************
+* Helper generating navigation links    *
+****************************************@
+@link(newPage: Int, newOrderBy: Option[Int] = None) = @{
+    routes.Application.list(newPage, newOrderBy.map { orderBy =>
+        if(orderBy == scala.math.abs(currentOrderBy)) -currentOrderBy else orderBy
+    }.getOrElse(currentOrderBy), currentFilter)
+    
+}
+
+@**********************************
+* Helper generating table headers *
+***********************************@
+@header(orderBy: Int, title: String) = {
+    <th class="col@orderBy header @if(scala.math.abs(currentOrderBy) == orderBy) @{if(currentOrderBy < 0) "headerSortDown" else "headerSortUp"}">
+        <a href="@link(0, Some(orderBy))">@title</a>
+    </th>
+}
+
+
+@main {
+<script type="text/javascript">
+<!--
+
+//-->
+
+function collectThisItem(item_url,id) {
+//$("#autosaveUpdates").html("Saving ... ");
+methodURL = item_url
+	
+	$.ajax({
+	    type: "GET",
+	    contentType: "application/text; charset=utf-8",
+	    url: methodURL,
+	    async: true,
+	    success: function (data) {
+	    	button = $("#btnAdd"+id);
+	    	button.attr("disabled","disabled");
+	    	button.html("added !");
+	    },
+	    
+	    error: function (result) {
+	        alert("Due to unexpected errors we were unable to load data");
+	    }
+	    
+	});
+
+}
+
+</script>
+
+    <h1>@Messages("items.list.title", currentPage.total)</h1>
+
+          <!-- @* <dl id="user">
+                *<dt>@user.name <span>(@user.email)</span></dt>
+                *<dd>
+                *    <a href="@routes.Application.logout()">Logout</a>
+                *</dd>
+                </dl> *@  --> 
+       <a href="@routes.Collection.list()">View my Collection</a>
+                  
+    @flash.get("success").map { message =>
+        <div class="alert-message warning">
+            <strong>Done!</strong> @message
+        </div>
+    }
+
+    <div id="actions">
+        
+        @helper.form(action=routes.Application.list()) {
+            <input type="search" id="searchbox" name="f" value="@currentFilter" placeholder="Filter by item name...">
+            <input type="submit" id="searchsubmit" value="Filter by name" class="btn primary">
+        }
+        
+        <a class="btn primary" id="add" href="@routes.Application.create()">Add a new item</a>
+        
+    </div>
+    
+    @Option(currentPage.items).filterNot(_.isEmpty).map { items =>
+        
+        <table class="items zebra-striped">
+            <thead>
+                <tr>
+                    @header(2, "Item name")
+                    @header(3, "Introduced")
+                    @header(4, "url")
+                    @header(5, "image")
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+
+                @items.map { 
+                    case (item, company) => {
+                        <tr>
+                            <td><a href="@routes.Application.edit(item.id.get)">@item.name</a></td>
+                            <td>
+                                @item.introduced.map(_.format("dd MMM yyyy")).getOrElse { <em>-</em> }
+                            </td>
+                            <td>
+                               <img src=" @item.image" border="0" />
+                            </td>
+                            <td>
+                                @company.map(_.name).getOrElse { <em>-</em> }
+                            </td>
+                            <td>
+         	                    @if(Item.isItemCollected(item.id.get,userEmail)){
+		    	                   <a id="btnAdd@item.id.get" class="btn primary" onClick="javascript:collectThisItem('@routes.Collection.add(item.id.get)',@item.id.get)"  disabled="disabled"> Already Collect ! </button>
+                                } else {
+                	               <a id="btnAdd@item.id.get" class="btn primary" onClick="javascript:collectThisItem('@routes.Collection.add(item.id.get)',@item.id.get)">Collect ! </button>
+                                }                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+
+        <div id="pagination" class="pagination">
+            <ul>
+                @currentPage.prev.map { page =>
+                    <li class="prev">
+                        <a href="@link(page)">&larr; Previous</a>
+                    </li> 
+                }.getOrElse {
+                    <li class="prev disabled">
+                        <a>&larr; Previous</a>
+                    </li>
+                }
+                <li class="current">
+                    <a>Displaying @(currentPage.offset + 1) to @(currentPage.offset + items.size) of @currentPage.total</a>
+                </li>
+                @currentPage.next.map { page =>
+                    <li class="next">
+                        <a href="@link(page)">Next &rarr;</a>
+                    </li> 
+                }.getOrElse {
+                    <li class="next disabled">
+                        <a>Next &rarr;</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        
+    }.getOrElse {
+        
+        <div class="well">
+            <em>Nothing to display</em>
+        </div>
+        
+    }
+
+        
+}
+
+            

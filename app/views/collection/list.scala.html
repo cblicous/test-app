@@ -1,0 +1,17 @@
+@( items: Seq[Item], user: User)
+@main {
+
+<h1>Your Collection @(user.name)</h1>
+<div class="collectionBoard">
+@for(item <- items) {
+  <div class="collectionCase">
+  <img src="@item.image" border="0" /><br/>
+  @item.name ($@item.id)
+  <br/>
+  <a class="btn primary" id="add" href="@routes.UserImage.addImage(item.id.get)">Add a UserImage</a>
+        
+  </div>
+} 
+</div>
+
+}

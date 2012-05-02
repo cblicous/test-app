@@ -1,0 +1,37 @@
+@(itemForm: Form[Item])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) } 
+
+@main {
+    
+    <h1>Add a Item</h1>
+    
+    @form(routes.Application.save()) {
+        
+        <fieldset>
+        
+            @inputText(itemForm("name"), '_label -> "Item name")
+            @inputText(itemForm("image"), '_label -> "Image")
+            @inputText(itemForm("url"), '_label -> "Url ")
+      		@inputText(itemForm("itemType"), '_label -> "itemType ")
+
+            @select(
+                itemForm("company"), 
+                Company.options, 
+                '_label -> "Company", '_default -> "-- Choose a company --",
+                '_showConstraints -> false
+            )
+            
+
+        </fieldset>
+        
+        <div class="actions">
+            <input type="submit" value="Create this Item" class="btn primary"> or 
+            <a href="@routes.Application.list()" class="btn">Cancel</a> 
+        </div>
+        
+    }
+    
+}

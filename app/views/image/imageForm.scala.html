@@ -1,0 +1,22 @@
+
+@(itemId: Long, userEmail : String)
+
+
+@import helper._
+
+@main {
+
+	@form(action = routes.UserImage.upload, 'enctype -> "multipart/form-data") {
+	
+	    File:      
+	    <input type="file" name="picture"> <br/>
+	    <input type="text" name="url"> <br/>
+	    <input type="text" name="userEmail" value="@userEmail"> <br/>
+	    <input type="text" name="itemId" value="@itemId">     <br/>
+	    
+	    <p>
+	        <input type="submit"  class="btn primary">
+	    </p>
+	    
+	}
+}

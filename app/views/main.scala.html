@@ -1,0 +1,31 @@
+@(content: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Items database</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")"> 
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")"> 
+        <script src="@routes.Assets.at("javascript/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        
+        <div id="navigation" >
+            <h1 class="fill">
+                <a href="@routes.Application.index()">
+                   first demo ' &mdash; Item database
+                </a> 
+                   </h1> 
+           	 		<a href="@routes.Collection.list()"> my collection </a> |
+           	 		<a href="@routes.Application.list(0, 2, "")"> All Items</a> | 
+           	 		<a href="@routes.Login.logout"> Logout</a> | <br/>           	 
+            	</div>
+        
+
+        
+        <section id="main">
+            @content
+        </section>
+        
+    </body>
+</html>
