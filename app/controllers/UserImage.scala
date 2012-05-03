@@ -54,21 +54,22 @@ object UserImage extends Controller with Secured {
 	 val filename = filePart.filename
 	 val contentType = filePart.contentType
 	 
-	 val path = Play.current.path
+
 	 val md5 = MessageDigest.getInstance("MD5")
 	 md5.reset()
 	 md5.update(("filename + System.currentTimeMillis ").getBytes())
 	 
      val md5hash = md5.digest().map(0xFF & _).map { "%02x".format(_) }.foldLeft(""){_ + _}
-     
-     val filenameNew = path + "/public/usermedia/" + md5hash + filename
-	 filePart.ref.moveTo(new File(filename),true)
+     val path = Play.current.path
+     val filenameNew =  "/public/usermedia/" + md5hash + filename
+     val filenameWithPath = path +filenameNew
+	 filePart.ref.moveTo(new File(filenameNew),true)
 	 
 	 var imageMaybe = filledForm.value
 	 
 	  imageMaybe match {
 	  	case Some( image) => {
-	  				var newImage = Image(null,image.name,image.image,filenameNew ,image.user_Email,image.item_Id)
+	  				var newImage = Image(null,image.name,filename,filenameNew ,image.user_Email,image.item_Id)
 	  				 Image.insert(newImage)
 	  		}
 	  	case None => {

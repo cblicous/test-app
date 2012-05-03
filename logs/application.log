@@ -1,13 +1,13 @@
-2012-05-03 14:46:55,755 - [INFO] - from play in main 
+2012-05-03 15:00:12,537 - [INFO] - from play in main 
 Listening for HTTP on port 9000...
 
-2012-05-03 14:47:00,607 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
+2012-05-03 15:00:18,354 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
 database [default] connected at jdbc:h2:mem:play
 
-2012-05-03 14:47:00,845 - [ERROR] - from application in New I/O server worker #1-1 
+2012-05-03 15:00:18,468 - [ERROR] - from application in New I/O server worker #1-1 
 
 
-! @6a8p0kio4 - Internal server error, for request [GET /mycollection] ->
+! @6a8p2e2lj - Internal server error, for request [GET /] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution! [An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:424) ~[play_2.9.1.jar:2.0.1]
@@ -37,7 +37,7 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at akka.jsr166y.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[akka-actor.jar:2.0.1]
 	at akka.jsr166y.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[akka-actor.jar:2.0.1]
 
-2012-05-03 14:47:05,070 - [WARN] - from play in New I/O server worker #1-1 
+2012-05-03 15:00:45,545 - [WARN] - from play in New I/O server worker #1-1 
 Applying evolution script for database 'default':
 
 # --- Rev:1,Ups - dae1bea
@@ -130,15 +130,15 @@ INSERT INTO item (id,name ,image,url,itemtype,company_id) VALUES (4,'Beaute de F
 INSERT INTO item (id,name ,image,url,itemtype,company_id) VALUES (5,'Le Vernis 134','/assets/images/P158320_MEDIUM.jpg','','Nail',1);
 
 
-2012-05-03 14:47:10,326 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2012-05-03 15:00:46,462 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 database [default] connected at jdbc:h2:mem:play
 
-2012-05-03 14:47:10,355 - [INFO] - from play in play-akka.actor.default-dispatcher-1 
+2012-05-03 15:00:46,493 - [INFO] - from play in play-akka.actor.default-dispatcher-3 
 Application started (Dev)
 
-2012-05-03 14:48:47,204 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+2012-05-03 15:02:45,567 - [INFO] - from play in play-akka.actor.default-dispatcher-6 
 database [default] connected at jdbc:h2:mem:play
 
-2012-05-03 14:48:47,223 - [INFO] - from play in play-akka.actor.default-dispatcher-2 
+2012-05-03 15:02:45,612 - [INFO] - from play in play-akka.actor.default-dispatcher-6 
 Application started (Dev)
 
