@@ -20,25 +20,28 @@ object imageForm extends BaseScalaTemplate[play.api.templates.Html,Format[play.a
         _display_ {import helper._
 
 
-Seq(format.raw/*2.36*/("""
+Seq[Any](format.raw/*2.36*/("""
 
 
 """),format.raw/*6.1*/("""
-"""),_display_(Seq(/*7.2*/main/*7.6*/ {_display_(Seq(format.raw/*7.8*/("""
+"""),_display_(Seq[Any](/*7.2*/main/*7.6*/ {_display_(Seq[Any](format.raw/*7.8*/("""
 
-	"""),_display_(Seq(/*9.3*/form(action = routes.UserImage.upload, 'enctype -> "multipart/form-data")/*9.76*/ {_display_(Seq(format.raw/*9.78*/("""
+	"""),_display_(Seq[Any](/*9.3*/form(action = routes.UserImage.upload, 'enctype -> "multipart/form-data")/*9.76*/ {_display_(Seq[Any](format.raw/*9.78*/("""
 	
 	    File:      
 	    <input type="file" name="picture"> <br/>
 	    <input type="text" name="url"> <br/>
-	    <input type="text" name="userEmail" value=""""),_display_(Seq(/*14.50*/userEmail)),format.raw/*14.59*/(""""> <br/>
-	    <input type="text" name="itemId" value=""""),_display_(Seq(/*15.47*/itemId)),format.raw/*15.53*/("""">     <br/>
+	    <input type="text" name="name"> <br/>
+	    <input type="text" name="image"> <br/>
+	    
+	    <input type="text" name="userEmail" value=""""),_display_(Seq[Any](/*17.50*/userEmail)),format.raw/*17.59*/(""""> <br/>
+	    <input type="text" name="itemId" value=""""),_display_(Seq[Any](/*18.47*/itemId)),format.raw/*18.53*/("""">     <br/>
 	    
 	    <p>
 	        <input type="submit"  class="btn primary">
 	    </p>
 	    
-	""")))})),format.raw/*21.3*/("""
+	""")))})),format.raw/*24.3*/("""
 """)))})))}
     }
     
@@ -51,11 +54,11 @@ Seq(format.raw/*2.36*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 24 17:25:58 CEST 2012
-                    SOURCE: /play-2.0/samples/scala/computer-database/app/views/image/imageForm.scala.html
-                    HASH: a271badd7181f0182f0284d21449d74969eddad0
-                    MATRIX: 520->2|642->36|671->56|702->58|713->62|746->64|779->68|860->141|894->143|1082->300|1113->309|1199->364|1227->370|1356->468
-                    LINES: 19->2|23->2|26->6|27->7|27->7|27->7|29->9|29->9|29->9|34->14|34->14|35->15|35->15|41->21
+                    DATE: Thu May 03 12:21:28 CEST 2012
+                    SOURCE: C:/repositories/play/test-app/app/views/image/imageForm.scala.html
+                    HASH: b7303e7829edb3961bf54e8d51a841500f3199a3
+                    MATRIX: 520->3|648->37|680->61|717->64|728->68|766->70|806->76|887->149|926->151|1220->409|1251->418|1343->474|1371->480|1506->584
+                    LINES: 19->2|23->2|26->6|27->7|27->7|27->7|29->9|29->9|29->9|37->17|37->17|38->18|38->18|44->24
                     -- GENERATED --
                 */
             

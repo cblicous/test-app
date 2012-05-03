@@ -20,25 +20,25 @@ object editForm extends BaseScalaTemplate[play.api.templates.Html,Format[play.ap
         _display_ {import helper._
 
 implicit def /*5.2*/implicitFieldConstructor/*5.26*/ = {{ FieldConstructor(twitterBootstrapInput.f) }};
-Seq(format.raw/*1.34*/("""
+Seq[Any](format.raw/*1.34*/("""
 
 """),format.raw/*4.1*/("""
 """),format.raw/*5.75*/("""
 
-"""),_display_(Seq(/*7.2*/main/*7.6*/ {_display_(Seq(format.raw/*7.8*/("""
+"""),_display_(Seq[Any](/*7.2*/main/*7.6*/ {_display_(Seq[Any](format.raw/*7.8*/("""
     
     <h1>Edit Item</h1>
     
-    """),_display_(Seq(/*11.6*/form(routes.Application.update(id))/*11.41*/ {_display_(Seq(format.raw/*11.43*/("""
+    """),_display_(Seq[Any](/*11.6*/form(routes.Application.update(id))/*11.41*/ {_display_(Seq[Any](format.raw/*11.43*/("""
         
         <fieldset>
         
-            """),_display_(Seq(/*15.14*/inputText(itemForm("name"), '_label -> "Item name"))),format.raw/*15.65*/("""
-            """),_display_(Seq(/*16.14*/inputText(itemForm("url"), '_label -> "Url date"))),format.raw/*16.63*/("""
-           	"""),_display_(Seq(/*17.14*/inputText(itemForm("itemType"), '_label -> "itemType date"))),format.raw/*17.73*/("""
-            """),_display_(Seq(/*18.14*/inputText(itemForm("introduced"), '_label -> "introduced date"))),format.raw/*18.77*/("""
+            """),_display_(Seq[Any](/*15.14*/inputText(itemForm("name"), '_label -> "Item name"))),format.raw/*15.65*/("""
+            """),_display_(Seq[Any](/*16.14*/inputText(itemForm("url"), '_label -> "Url date"))),format.raw/*16.63*/("""
+           	"""),_display_(Seq[Any](/*17.14*/inputText(itemForm("itemType"), '_label -> "itemType date"))),format.raw/*17.73*/("""
+            """),_display_(Seq[Any](/*18.14*/inputText(itemForm("introduced"), '_label -> "introduced date"))),format.raw/*18.77*/("""
             
-            """),_display_(Seq(/*20.14*/select(
+            """),_display_(Seq[Any](/*20.14*/select(
                 itemForm("company"), 
                 Company.options, 
                 '_label -> "Company", '_default -> "-- Choose a company --",
@@ -49,12 +49,12 @@ Seq(format.raw/*1.34*/("""
         
         <div class="actions">
             <input type="submit" value="Save this item" class="btn primary"> or 
-            <a href=""""),_display_(Seq(/*31.23*/routes/*31.29*/.Application.list())),format.raw/*31.48*/("""" class="btn">Cancel</a> 
+            <a href=""""),_display_(Seq[Any](/*31.23*/routes/*31.29*/.Application.list())),format.raw/*31.48*/("""" class="btn">Cancel</a> 
         </div>
         
     """)))})),format.raw/*34.6*/("""
     
-    """),_display_(Seq(/*36.6*/form(routes.Application.delete(id), 'class -> "topRight")/*36.63*/ {_display_(Seq(format.raw/*36.65*/("""
+    """),_display_(Seq[Any](/*36.6*/form(routes.Application.delete(id), 'class -> "topRight")/*36.63*/ {_display_(Seq[Any](format.raw/*36.65*/("""
         <input type="submit" value="Delete this item" class="btn danger">
     """)))})),format.raw/*38.6*/("""
     
@@ -71,10 +71,10 @@ Seq(format.raw/*1.34*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 24 17:07:29 CEST 2012
-                    SOURCE: /play-2.0/samples/scala/computer-database/app/views/editForm.scala.html
-                    HASH: e94a4f0e7cafaec0e9de57b1e18dd1965cec161c
-                    MATRIX: 517->1|634->54|666->78|740->33|768->52|796->127|828->130|839->134|872->136|941->175|985->210|1020->212|1102->263|1175->314|1220->328|1291->377|1336->391|1417->450|1462->464|1547->527|1605->554|1840->767|2043->939|2058->945|2099->964|2185->1019|2226->1030|2292->1087|2327->1089|2438->1169|2476->1176
+                    DATE: Thu May 03 11:07:00 CEST 2012
+                    SOURCE: C:/repositories/play/test-app/app/views/editForm.scala.html
+                    HASH: f7b804294ef8cc5180715c0469b809d6fe13f8b3
+                    MATRIX: 517->1|635->58|667->82|746->33|776->55|805->131|844->136|855->140|893->142|971->185|1015->220|1055->222|1146->277|1219->328|1270->343|1341->392|1392->407|1473->466|1524->481|1609->544|1674->573|1914->791|2128->969|2143->975|2184->994|2273->1052|2321->1065|2387->1122|2427->1124|2540->1206|2580->1215
                     LINES: 19->1|22->5|22->5|23->1|25->4|26->5|28->7|28->7|28->7|32->11|32->11|32->11|36->15|36->15|37->16|37->16|38->17|38->17|39->18|39->18|41->20|46->25|52->31|52->31|52->31|55->34|57->36|57->36|57->36|59->38|61->40
                     -- GENERATED --
                 */

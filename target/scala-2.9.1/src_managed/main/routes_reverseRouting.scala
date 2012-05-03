@@ -1,6 +1,6 @@
-// @SOURCE:/play-2.0/samples/scala/computer-database/conf/routes
-// @HASH:7db78b4e1828d153d4dc3fbd8e38ff8cd70bf3b4
-// @DATE:Tue Apr 24 17:45:46 CEST 2012
+// @SOURCE:C:/repositories/play/test-app/conf/routes
+// @HASH:d4d80bf1d5a9c923bacdcc878aa4c66173b5f228
+// @DATE:Thu May 03 11:06:59 CEST 2012
 
 import play.core._
 import play.core.Router._

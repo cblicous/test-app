@@ -45,9 +45,10 @@ create table item_owner (
 );
 
 
-create table item_owner_image ( 
+create table image ( 
  	id    bigint not null,
- 	caption  	varchar(255) not null,
+ 	name  	varchar(1024) not null,
+ 	image  	varchar(255) not null, 	
  	url  	varchar(2048) not null,
 	item_id   bigint not null,
  	user_email    varchar(255) not null,
@@ -61,7 +62,7 @@ create sequence company_seq start with 1000;
 
 create sequence item_seq start with 1000;
 
-create sequence item_owner_image_seq start with 1000;
+create sequence image_seq start with 1000;
 
 
 alter table item add constraint fk_item_company_1 foreign key (company_id) references company (id) on delete restrict on update restrict;

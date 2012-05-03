@@ -20,25 +20,25 @@ object createForm extends BaseScalaTemplate[play.api.templates.Html,Format[play.
         _display_ {import helper._
 
 implicit def /*5.2*/implicitFieldConstructor/*5.26*/ = {{ FieldConstructor(twitterBootstrapInput.f) }};
-Seq(format.raw/*1.24*/("""
+Seq[Any](format.raw/*1.24*/("""
 
 """),format.raw/*4.1*/("""
 """),format.raw/*5.75*/(""" 
 
-"""),_display_(Seq(/*7.2*/main/*7.6*/ {_display_(Seq(format.raw/*7.8*/("""
+"""),_display_(Seq[Any](/*7.2*/main/*7.6*/ {_display_(Seq[Any](format.raw/*7.8*/("""
     
     <h1>Add a Item</h1>
     
-    """),_display_(Seq(/*11.6*/form(routes.Application.save())/*11.37*/ {_display_(Seq(format.raw/*11.39*/("""
+    """),_display_(Seq[Any](/*11.6*/form(routes.Application.save())/*11.37*/ {_display_(Seq[Any](format.raw/*11.39*/("""
         
         <fieldset>
         
-            """),_display_(Seq(/*15.14*/inputText(itemForm("name"), '_label -> "Item name"))),format.raw/*15.65*/("""
-            """),_display_(Seq(/*16.14*/inputText(itemForm("image"), '_label -> "Image"))),format.raw/*16.62*/("""
-            """),_display_(Seq(/*17.14*/inputText(itemForm("url"), '_label -> "Url "))),format.raw/*17.59*/("""
-      		"""),_display_(Seq(/*18.10*/inputText(itemForm("itemType"), '_label -> "itemType "))),format.raw/*18.65*/("""
+            """),_display_(Seq[Any](/*15.14*/inputText(itemForm("name"), '_label -> "Item name"))),format.raw/*15.65*/("""
+            """),_display_(Seq[Any](/*16.14*/inputText(itemForm("image"), '_label -> "Image"))),format.raw/*16.62*/("""
+            """),_display_(Seq[Any](/*17.14*/inputText(itemForm("url"), '_label -> "Url "))),format.raw/*17.59*/("""
+      		"""),_display_(Seq[Any](/*18.10*/inputText(itemForm("itemType"), '_label -> "itemType "))),format.raw/*18.65*/("""
 
-            """),_display_(Seq(/*20.14*/select(
+            """),_display_(Seq[Any](/*20.14*/select(
                 itemForm("company"), 
                 Company.options, 
                 '_label -> "Company", '_default -> "-- Choose a company --",
@@ -50,7 +50,7 @@ Seq(format.raw/*1.24*/("""
         
         <div class="actions">
             <input type="submit" value="Create this Item" class="btn primary"> or 
-            <a href=""""),_display_(Seq(/*32.23*/routes/*32.29*/.Application.list())),format.raw/*32.48*/("""" class="btn">Cancel</a> 
+            <a href=""""),_display_(Seq[Any](/*32.23*/routes/*32.29*/.Application.list())),format.raw/*32.48*/("""" class="btn">Cancel</a> 
         </div>
         
     """)))})),format.raw/*35.6*/("""
@@ -67,10 +67,10 @@ Seq(format.raw/*1.24*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 24 17:07:29 CEST 2012
-                    SOURCE: /play-2.0/samples/scala/computer-database/app/views/createForm.scala.html
-                    HASH: fc541d60429e69728ee1b2b7f4d037aaeab90fa4
-                    MATRIX: 514->1|621->44|653->68|727->23|755->42|783->117|816->121|827->125|860->127|930->167|970->198|1005->200|1087->251|1160->302|1205->316|1275->364|1320->378|1387->423|1428->433|1505->488|1551->503|1786->716|1996->895|2011->901|2052->920|2138->975
+                    DATE: Thu May 03 11:07:00 CEST 2012
+                    SOURCE: C:/repositories/play/test-app/app/views/createForm.scala.html
+                    HASH: a2161dc2dbb2de4911cecb6c270e029c082cdd77
+                    MATRIX: 514->1|622->48|654->72|733->23|763->45|792->121|832->127|843->131|881->133|960->177|1000->208|1040->210|1131->265|1204->316|1255->331|1325->379|1376->394|1443->439|1490->450|1567->505|1620->522|1860->740|2082->926|2097->932|2138->951|2227->1009
                     LINES: 19->1|22->5|22->5|23->1|25->4|26->5|28->7|28->7|28->7|32->11|32->11|32->11|36->15|36->15|37->16|37->16|38->17|38->17|39->18|39->18|41->20|46->25|53->32|53->32|53->32|56->35
                     -- GENERATED --
                 */

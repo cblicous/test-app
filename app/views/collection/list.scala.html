@@ -1,4 +1,4 @@
-@( items: Seq[Item], user: User)
+@( items: Seq[Item], user: User, imageMap : Map[Long, Seq[Image]])
 @main {
 
 <h1>Your Collection @(user.name)</h1>
@@ -9,9 +9,18 @@
   @item.name ($@item.id)
   <br/>
   <a class="btn primary" id="add" href="@routes.UserImage.addImage(item.id.get)">Add a UserImage</a>
-        
+
+  <div id="userImages">
+	@for(image <- imageMap(item.id.get)) {
+	<div>
+		<img src="@image.url" />
+		@image.name
+	
+	</div>
   </div>
-} 
+	} 
+	</div>
+	}
 </div>
 
 }

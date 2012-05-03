@@ -26,13 +26,20 @@ object Collection extends Controller with Secured {
 
     
   def list = IsAuthenticated { userEmail => _ =>
-    User.findByEmail(userEmail).map { user =>
+    User.findByEmail(userEmail).map { user => {
+      val items = Item.findItemsByUser(userEmail)
+      var imageMap = Map[Long, Seq[Image]]()
+      
+      for (item <- items ) {
+    	  val images = Image.findImagesByUser(userEmail,item.id.get)
+    	  imageMap += item.id.get -> images
+      }
       Ok(
-        views.html.collection.list(
-          Item.findItemsByUser(userEmail), 
-          user
+        views.html.collection.list(items,
+          user, imageMap
         )
       )
+    }
     }.getOrElse(Forbidden)
   }
 

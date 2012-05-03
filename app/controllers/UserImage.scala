@@ -31,6 +31,8 @@ object UserImage extends Controller with Secured {
     mapping(
       "id" -> ignored(NotAssigned:Pk[Long]),
       "url" -> text,
+      "name" -> text,
+      "image" -> text,
       "userEmail" -> text,
       "itemId" ->longNumber
     )(Image.apply)(Image.unapply)
@@ -49,23 +51,50 @@ object UserImage extends Controller with Secured {
 
 	 val filledForm = imageForm.bindFromRequest()(request)
 	 
-	 val filename = filePart.filename 
+	 val filename = filePart.filename
 	 val contentType = filePart.contentType
-	 filePart.ref.moveTo(new File("../../public/usermedia/" + filename))
-
+	 
+	 val path = Play.current.path
 	 val md5 = MessageDigest.getInstance("MD5")
 	 md5.reset()
 	 md5.update(("filename + System.currentTimeMillis ").getBytes())
-
+	 
      val md5hash = md5.digest().map(0xFF & _).map { "%02x".format(_) }.foldLeft(""){_ + _}
-  
+     
+     val filenameNew = path + "/public/usermedia/" + md5hash + filename
+	 filePart.ref.moveTo(new File(filename),true)
+	 
+	 var imageMaybe = filledForm.value
+	 
+	  imageMaybe match {
+	  	case Some( image) => {
+	  				var newImage = Image(null,image.name,image.image,filenameNew ,image.user_Email,image.item_Id)
+	  				 Image.insert(newImage)
+	  		}
+	  	case None => {
+	  		println("No name value")
+	  	}
+	  }
+
+
+	 // MAP : List (1,2,3,4) map ( s => s.length) wird zu 
+	 // 1.legth 2.length 3.length 
+	 
+	 //fold left : 
+	 // List (1,2,3,4) foldleft ((s,i) => s + i)) 
+	 // wird zu 
+	 
+	 // scala> List("How","long","are","we?") map (_.length)
+	// res7: List[Int] = List(3, 4, 3, 3)
+
 	 if (filledForm.hasErrors){
 		 // todo : errorhandling
 		// BadRequest(html.image.imageForm(formWithErrors))
 	 }
 	
 
-	   Ok("File uploaded")
+	   // Ok("File uploaded")
+	 Redirect(routes.Collection.list)
   }
 }
   

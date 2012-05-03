@@ -19,14 +19,14 @@ object twitterBootstrapInput extends BaseScalaTemplate[play.api.templates.Html,F
     def apply/*1.2*/(elements: helper.FieldElements):play.api.templates.Html = {
         _display_ {
 
-Seq(format.raw/*1.34*/("""
+Seq[Any](format.raw/*1.34*/("""
 
 """),format.raw/*5.52*/("""
-<div class="clearfix """),_display_(Seq(/*6.23*/if(elements.hasErrors)/*6.45*/ {_display_(Seq(format.raw/*6.47*/("""error""")))})),format.raw/*6.53*/("""">
-    <label for=""""),_display_(Seq(/*7.18*/elements/*7.26*/.id)),format.raw/*7.29*/("""">"""),_display_(Seq(/*7.32*/elements/*7.40*/.label)),format.raw/*7.46*/("""</label>
+<div class="clearfix """),_display_(Seq[Any](/*6.23*/if(elements.hasErrors)/*6.45*/ {_display_(Seq[Any](format.raw/*6.47*/("""error""")))})),format.raw/*6.53*/("""">
+    <label for=""""),_display_(Seq[Any](/*7.18*/elements/*7.26*/.id)),format.raw/*7.29*/("""">"""),_display_(Seq[Any](/*7.32*/elements/*7.40*/.label)),format.raw/*7.46*/("""</label>
     <div class="input">
-        """),_display_(Seq(/*9.10*/elements/*9.18*/.input)),format.raw/*9.24*/("""
-        <span class="help-inline">"""),_display_(Seq(/*10.36*/elements/*10.44*/.infos.mkString(", "))),format.raw/*10.65*/("""</span> 
+        """),_display_(Seq[Any](/*9.10*/elements/*9.18*/.input)),format.raw/*9.24*/("""
+        <span class="help-inline">"""),_display_(Seq[Any](/*10.36*/elements/*10.44*/.infos.mkString(", "))),format.raw/*10.65*/("""</span> 
     </div>
 </div>
 """))}
@@ -41,10 +41,10 @@ Seq(format.raw/*1.34*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 24 17:07:29 CEST 2012
-                    SOURCE: /play-2.0/samples/scala/computer-database/app/views/twitterBootstrapInput.scala.html
-                    HASH: 69ac1da3a5c9505436ae5a8eb5dc1c480cf7a34a
-                    MATRIX: 535->1|639->33|668->190|721->213|751->235|785->237|822->243|872->263|888->271|912->274|945->277|961->285|988->291|1060->333|1076->341|1103->347|1170->383|1187->391|1230->412
+                    DATE: Thu May 03 11:07:00 CEST 2012
+                    SOURCE: C:/repositories/play/test-app/app/views/twitterBootstrapInput.scala.html
+                    HASH: 3f1d21c813af9bc1467d0f6f9a7bcffcd6473bdf
+                    MATRIX: 535->1|644->33|675->194|734->218|764->240|803->242|840->248|896->269|912->277|936->280|974->283|990->291|1017->297|1096->341|1112->349|1139->355|1212->392|1229->400|1272->421
                     LINES: 19->1|22->1|24->5|25->6|25->6|25->6|25->6|26->7|26->7|26->7|26->7|26->7|26->7|28->9|28->9|28->9|29->10|29->10|29->10
                     -- GENERATED --
                 */

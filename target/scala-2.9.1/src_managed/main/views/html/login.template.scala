@@ -19,38 +19,38 @@ object login extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.t
     def apply/*1.2*/(form: Form[(String,String)])(implicit flash: Flash):play.api.templates.Html = {
         _display_ {
 
-Seq(format.raw/*1.54*/("""
+Seq[Any](format.raw/*1.54*/("""
 
 <html>
     <head>
         <title>Login</title>
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq(/*6.59*/routes/*6.65*/.Assets.at("images/favicon.png"))),format.raw/*6.97*/("""">
-        <link rel="stylesheet" type="text/css" media="screen" href=""""),_display_(Seq(/*7.70*/routes/*7.76*/.Assets.at("stylesheets/login.css"))),format.raw/*7.111*/("""">
+        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*6.59*/routes/*6.65*/.Assets.at("images/favicon.png"))),format.raw/*6.97*/("""">
+        <link rel="stylesheet" type="text/css" media="screen" href=""""),_display_(Seq[Any](/*7.70*/routes/*7.76*/.Assets.at("stylesheets/login.css"))),format.raw/*7.111*/("""">
     </head>
     <body>
         
         <header>
-            <a href=""""),_display_(Seq(/*12.23*/routes/*12.29*/.Application.index)),format.raw/*12.47*/("""" id="logo"> Login</a>
+            <a href=""""),_display_(Seq[Any](/*12.23*/routes/*12.29*/.Application.index)),format.raw/*12.47*/("""" id="logo"> Login</a>
         </header>
         
-        """),_display_(Seq(/*15.10*/helper/*15.16*/.form(routes.Login.authenticate)/*15.48*/ {_display_(Seq(format.raw/*15.50*/("""
+        """),_display_(Seq[Any](/*15.10*/helper/*15.16*/.form(routes.Login.authenticate)/*15.48*/ {_display_(Seq[Any](format.raw/*15.50*/("""
             
             <h1>Sign in</h1>
             
-            """),_display_(Seq(/*19.14*/form/*19.18*/.globalError.map/*19.34*/ { error =>_display_(Seq(format.raw/*19.45*/("""
+            """),_display_(Seq[Any](/*19.14*/form/*19.18*/.globalError.map/*19.34*/ { error =>_display_(Seq[Any](format.raw/*19.45*/("""
                 <p class="error">
-                    """),_display_(Seq(/*21.22*/error/*21.27*/.message)),format.raw/*21.35*/("""
+                    """),_display_(Seq[Any](/*21.22*/error/*21.27*/.message)),format.raw/*21.35*/("""
                 </p>
             """)))})),format.raw/*23.14*/("""
             
-            """),_display_(Seq(/*25.14*/flash/*25.19*/.get("success").map/*25.38*/ { message =>_display_(Seq(format.raw/*25.51*/("""
+            """),_display_(Seq[Any](/*25.14*/flash/*25.19*/.get("success").map/*25.38*/ { message =>_display_(Seq[Any](format.raw/*25.51*/("""
                 <p class="success">
-                    """),_display_(Seq(/*27.22*/message)),format.raw/*27.29*/("""
+                    """),_display_(Seq[Any](/*27.22*/message)),format.raw/*27.29*/("""
                 </p>
             """)))})),format.raw/*29.14*/("""
             
             <p>
-                <input type="email" name="email" placeholder="Email" id="email" value=""""),_display_(Seq(/*32.89*/form("email")/*32.102*/.value)),format.raw/*32.108*/("""">
+                <input type="email" name="email" placeholder="Email" id="email" value=""""),_display_(Seq[Any](/*32.89*/form("email")/*32.102*/.value)),format.raw/*32.108*/("""">
             </p>
             <p>
                 <input type="password" name="password" id="password" placeholder="Password">
@@ -82,10 +82,10 @@ Seq(format.raw/*1.54*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Tue Apr 24 17:17:41 CEST 2012
-                    SOURCE: /play-2.0/samples/scala/computer-database/app/views/login.scala.html
-                    HASH: ec61729e85b503682d8940de083edc6dd723a910
-                    MATRIX: 539->1|663->53|800->160|814->166|867->198|969->270|983->276|1040->311|1145->385|1160->391|1200->409|1290->468|1305->474|1346->506|1381->508|1481->577|1494->581|1519->597|1563->608|1650->664|1664->669|1694->677|1761->712|1819->739|1833->744|1861->763|1907->776|1996->834|2025->841|2092->876|2241->994|2264->1007|2293->1013|2596->1284
+                    DATE: Thu May 03 11:07:00 CEST 2012
+                    SOURCE: C:/repositories/play/test-app/app/views/login.scala.html
+                    HASH: d3683314b4ffd3a90e6f95909cc526914894f61f
+                    MATRIX: 539->1|668->53|815->165|829->171|882->203|990->276|1004->282|1061->317|1176->396|1191->402|1231->420|1329->482|1344->488|1385->520|1425->522|1534->595|1547->599|1572->615|1621->626|1715->684|1729->689|1759->697|1828->734|1893->763|1907->768|1935->787|1986->800|2082->860|2111->867|2180->904|2337->1025|2360->1038|2389->1044|2701->1324
                     LINES: 19->1|22->1|27->6|27->6|27->6|28->7|28->7|28->7|33->12|33->12|33->12|36->15|36->15|36->15|36->15|40->19|40->19|40->19|40->19|42->21|42->21|42->21|44->23|46->25|46->25|46->25|46->25|48->27|48->27|50->29|53->32|53->32|53->32|62->41
                     -- GENERATED --
                 */
